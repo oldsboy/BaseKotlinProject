@@ -1,5 +1,6 @@
 println("========================================================project.build.gradle.kts starting========================================================")
 
+//  buildscript中的配置主要是为gradle本身服务的，gradle插件需要依赖的一些库什么的都在这里配置
 buildscript {
     repositories {
         google()
@@ -11,11 +12,13 @@ buildscript {
     }
 
     dependencies {
+        // TODO:    如果出现gradle工具不适配java8的情况,在项目配置内将Gradle Setting中将jdk设置到11以上
         classpath("com.android.tools.build:gradle:7.2.1")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10")
     }
 }
 
+//  allprojects则是为项目中的所有module配置的共同模块
 allprojects {
     repositories {
         google()
